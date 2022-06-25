@@ -3,6 +3,8 @@ const app = express();
 const port = process.env.PORT || 8080;
 const path = require('path');
 
+const gru = require('./scripts/minion');
+
 app.use(express.static(path.join(__dirname, 'public', 'assets')));
 
 app.get('/', (req, res) => {
@@ -10,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/minion', (req, res) => {
+  const minion = gru.createMinion();
   res.send('Just created ' + minion);
 })
 
