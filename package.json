@@ -1,0 +1,23 @@
+{
+  "name": "minion-generator",
+  "version": "1.0.0",
+  "description": "A Node.js app that combines a random collection of SVG files to create a minion.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asarelcastellanos/minion-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asarelcastellanos/minion-generator/issues"
+  },
+  "homepage": "https://github.com/asarelcastellanos/minion-generator#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "sharp": "^0.30.7"
+  }
+}
