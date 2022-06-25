@@ -1,3 +1,6 @@
+// Some code snippets were taken from: https://github.com/fireship-io/nft-art-generator/blob/main/index.js
+// Credit to Jeff Delaney of Fireship.io
+
 const { readFileSync, writeFileSync, existsSync, mkdirSync } = require("fs");
 const sharp = require("sharp");
 
