@@ -1,7 +1,12 @@
 // Some code snippets were taken from: https://github.com/fireship-io/nft-art-generator/blob/main/index.js
 // Credit to Jeff Delaney of Fireship.io
 
-const { readFileSync, writeFileSync, existsSync, mkdirSync } = require("fs");
+const {
+  readFileSync,
+  writeFileSync,
+  existsSync,
+  mkdirSync
+} = require("fs");
 const sharp = require("sharp");
 
 //importing local data
@@ -71,6 +76,7 @@ function checkFolder() {
   console.log("out folder already created.");
 }
 
+// Creates folder for each image
 function createNameFolder(name) {
   if (!existsSync(`./public/out/${name}`)) {
     mkdirSync(`./public/out/${name}`);
@@ -88,8 +94,6 @@ function createImage() {
   const mouth = randInt(5);
   const beard = randInt(3);
 
-  const face = [hair, eyes, mouth, nose, beard].join("");
-
   const name = getRandomName();
   createNameFolder(name);
   console.log(name);
@@ -106,7 +110,7 @@ function createImage() {
   const meta = {
     name,
     description: `A drawing of ${name.split("-").join(" ")}`,
-    image: `/out/${name}/${name}.png`,
+    image: `${name}/${name}.png`,
   };
 
   writeFileSync(`./public/out/${name}/${name}.svg`, final);
