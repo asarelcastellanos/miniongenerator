@@ -5,7 +5,7 @@ const path = require('path');
 
 const gru = require('./scripts/minion');
 
-app.use(express.static(path.join(__dirname, 'public', 'assets')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   res.send("Running...");
@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.get('/minion', (req, res) => {
   const minion = gru.createMinion();
-  res.send('Just created ' + minion);
+  res.send(minion);
 })
 
 app.listen(port, () => {

@@ -106,12 +106,11 @@ function createImage() {
   const meta = {
     name,
     description: `A drawing of ${name.split("-").join(" ")}`,
-    image: `${name}.png`,
+    image: `/out/${name}/${name}.png`,
   };
 
-  writeFileSync(`./public/out/${name}/${name}.json`, JSON.stringify(meta));
   writeFileSync(`./public/out/${name}/${name}.svg`, final);
   svgToPng(name);
 
-  return name;
+  return meta;
 }
