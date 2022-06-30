@@ -21,7 +21,7 @@ app.get("/minion", (req, res) => {
   //   const minion = gru.createMinion(userid);
   //   res.send(minion);
   // }
-  const minion = gru.createMinion(userid);
+  const minion = gru.createMinion();
   res.send(minion);
 });
 
