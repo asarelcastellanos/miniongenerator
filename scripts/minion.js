@@ -102,7 +102,7 @@ function createImage(id) {
     userid: `${id}`,
     name,
     description: `A drawing of ${name.split("-").join(" ")}`,
-    image: `${name}/${name}.png`,
+    image_location: `/${name}/${name}.png`,
   };
 
   writeFileSync(`./public/out/${name}/${name}.svg`, final);
