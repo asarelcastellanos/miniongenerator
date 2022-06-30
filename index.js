@@ -19,7 +19,7 @@ app.get("/minion", (req, res) => {
   res.send(minion);
 });
 
-app.post("/delete", (req, res) => {
+app.delete("/delete", (req, res) => {
   if(existsSync('./public/out')) {
     rm(`./public/out`, { recursive: true }, (err) => {
       if (err) {

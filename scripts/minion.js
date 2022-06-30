@@ -22,12 +22,9 @@ module.exports.createMinion = function () {
 const template = `
     <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- bg -->
-        <!-- head -->
-        <!-- hair -->
-        <!-- eyes -->
-        <!-- nose -->
+        <!-- body -->
         <!-- mouth -->
-        <!-- beard -->
+        <!-- eyes -->
     </svg>
 `;
 
@@ -87,12 +84,9 @@ function createNameFolder(name) {
 
 // Creates Minion
 function createImage() {
-  const bg = randInt(5);
-  const hair = randInt(7);
-  const eyes = randInt(9);
-  const nose = randInt(4);
-  const mouth = randInt(5);
-  const beard = randInt(3);
+  const bg = randInt(4);
+  const eyes = randInt(4);
+  const mouth = randInt(4);
 
   const name = getRandomName();
   createNameFolder(name);
@@ -100,12 +94,9 @@ function createImage() {
 
   const final = template
     .replace("<!-- bg -->", getLayer(`bg${bg}`))
-    .replace("<!-- head -->", getLayer("head0"))
-    .replace("<!-- hair -->", getLayer(`hair${hair}`))
-    .replace("<!-- eyes -->", getLayer(`eyes${eyes}`))
-    .replace("<!-- nose -->", getLayer(`nose${nose}`))
+    .replace("<!-- body -->", getLayer("body0"))
     .replace("<!-- mouth -->", getLayer(`mouth${mouth}`))
-    .replace("<!-- beard -->", getLayer(`beard${beard}`, 0.5));
+    .replace("<!-- eyes -->", getLayer(`eyes${eyes}`))
 
   const meta = {
     name,
