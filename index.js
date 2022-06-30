@@ -6,31 +6,35 @@ const path = require("path");
 
 const gru = require("./scripts/minion");
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "public", "out")));
 
 app.get("/", (req, res) => {
-  res.send(
-    "Welcome to Build A Minion.\n Head over to /minion to create a minion!"
-  );
+  res.send("Hello there!");
 });
 
 app.get("/minion", (req, res) => {
-  const minion = gru.createMinion();
-  res.send(minion);
+  let userid = req.headers.userid;
+  if (userid == "" || userid == undefined) {
+    res.send("Error - Please use a userid.");
+  } else {
+    const minion = gru.createMinion(userid);
+    res.send(minion);
+  }
 });
 
 app.delete("/delete", (req, res) => {
-  if(existsSync('./public/out')) {
+  if (existsSync("./public/out")) {
     rm(`./public/out`, { recursive: true }, (err) => {
       if (err) {
         // File deletion failed
         console.error(err.message);
         return;
       }
-    })
-    res.send('public/out has been deleted');
+    });
+    res.send("public/out has been deleted");
   } else {
-    res.send('public/out does not exist');
+    res.send("public/out does not exist");
   }
 });
 

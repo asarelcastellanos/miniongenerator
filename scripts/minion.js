@@ -13,9 +13,9 @@ const sharp = require("sharp");
 var adjectives = require("../data/adjectives.json");
 var names = require("../data/names.json");
 
-module.exports.createMinion = function () {
+module.exports.createMinion = function (id) {
   checkFolder();
-  return createImage();
+  return createImage(id);
 };
 
 // The template to create a minion
@@ -83,7 +83,7 @@ function createNameFolder(name) {
 }
 
 // Creates Minion
-function createImage() {
+function createImage(id) {
   const bg = randInt(4);
   const eyes = randInt(4);
   const mouth = randInt(4);
@@ -99,6 +99,7 @@ function createImage() {
     .replace("<!-- eyes -->", getLayer(`eyes${eyes}`))
 
   const meta = {
+    userid: `${id}`,
     name,
     description: `A drawing of ${name.split("-").join(" ")}`,
     image: `${name}/${name}.png`,
