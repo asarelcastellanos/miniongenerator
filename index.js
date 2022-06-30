@@ -14,13 +14,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/minion", (req, res) => {
-  let userid = req.headers.userid;
-  if (userid == "" || userid == undefined) {
-    res.send("Error - Please use a userid.");
-  } else {
-    const minion = gru.createMinion(userid);
-    res.send(minion);
-  }
+  // let userid = req.headers.userid;
+  // if (userid == "" || userid == undefined) {
+  //   res.send("Error - Please use a userid.");
+  // } else {
+  //   const minion = gru.createMinion(userid);
+  //   res.send(minion);
+  // }
+  const minion = gru.createMinion(userid);
+  res.send(minion);
 });
 
 app.delete("/delete", (req, res) => {
