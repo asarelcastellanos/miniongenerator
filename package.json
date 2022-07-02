@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/asarelcastellanos/minion-generator#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.18.1",
-    "mongodb": "^4.7.0",
     "sharp": "^0.30.7"
   }
 }

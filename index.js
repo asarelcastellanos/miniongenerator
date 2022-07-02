@@ -8,19 +8,13 @@ const gru = require("./scripts/minion");
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public", "out")));
+app.set('view engine', 'ejs');
 
 app.get("/", (req, res) => {
-  res.send("Hello there!");
+  res.render('index')
 });
 
 app.get("/minion", (req, res) => {
-  // let userid = req.headers.userid;
-  // if (userid == "" || userid == undefined) {
-  //   res.send("Error - Please use a userid.");
-  // } else {
-  //   const minion = gru.createMinion(userid);
-  //   res.send(minion);
-  // }
   const minion = gru.createMinion();
   res.send(minion);
 });

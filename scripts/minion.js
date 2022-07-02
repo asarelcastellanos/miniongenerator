@@ -10,7 +10,6 @@ const {
 const sharp = require("sharp");
 
 //importing local data
-var adjectives = require("../data/adjectives.json");
 var names = require("../data/names.json");
 
 module.exports.createMinion = function () {
@@ -40,9 +39,8 @@ function randElement(arr) {
 
 // Give the minion a random name from the list.
 function getRandomName() {
-  const randAdj = randElement(adjectives);
   const randName = randElement(names);
-  const name = `${randAdj.name}-${randName.name}`;
+  const name = `${randName.name}`;
   return name;
 }
 
