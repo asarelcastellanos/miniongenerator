@@ -1,39 +1,28 @@
-const express = require("express");
-const { rm, existsSync } = require("fs");
-const app = express();
-const port = process.env.PORT || 8080;
-const path = require("path");
 
-const gru = require("./scripts/minion");
+const express = require('express');
+const app = module.exports = express();
+const port = 8080;
 
+const path = require('path');
+
+// Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public", "out")));
+
+// Change path
+app.use(express.static(path.join(__dirname, "public")));
+
+// Set the view engine to EJS
 app.set('view engine', 'ejs');
 
-app.get("/", (req, res) => {
-  res.render('index')
-});
+// Home Page
+app.get('/', (req, res) => {
+  res.render('index');
+})
 
-app.get("/minion", (req, res) => {
-  const minion = gru.createMinion();
-  res.send(minion);
-});
+// API v1 Routes
+app.use('/api/v1', require('./controllers/api_v1'));
 
-app.delete("/delete", (req, res) => {
-  if (existsSync("./public/out")) {
-    rm(`./public/out`, { recursive: true }, (err) => {
-      if (err) {
-        // File deletion failed
-        console.error(err.message);
-        return;
-      }
-    });
-    res.send("public/out has been deleted");
-  } else {
-    res.send("public/out does not exist");
-  }
-});
-
+// Listening on port: 8080
 app.listen(port, () => {
-  console.log(`Node.js listening on port ${port}`);
-});
+  console.log(`Minion Meme Generator listening on port:${port}`)
+})
