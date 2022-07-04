@@ -8,9 +8,6 @@ const path = require('path');
 // Middleware
 app.use(express.json());
 
-// Change path
-app.use(express.static(path.join(__dirname, "public")));
-
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 
