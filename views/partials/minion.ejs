@@ -2,7 +2,7 @@
 <h6>Randomly Generate 1 Minion Meme</h6>
 <p>This endpoint retrieves just one minion meme.</p>
 <h6>HTTP Request</h6>
-<code>GET https://minion-generator.herokuapp.com/minion</code>
+<code>GET https://minion-generator.herokuapp.com/api/v1/minion/userid</code>
 <h6>Query Parameters</h6>
 <table class="table">
   <thead>
@@ -13,16 +13,16 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">id</th>
-      <td>Used to create a folder for your personal memes. For example <code>id='asarelcastellanos'</code></td>
+      <th scope="row">userid</th>
+      <td>A string used to create a folder for your personal memes.</td>
     </tr>
   </tbody>
 </table>
 <h6>Sample Output</h6>
 <pre>
 {
-    "name": "Jack",
-    "description": "A drawing of Jack",
-    "image_location": "/Jack/Jack.png"
+  "name": "Norbit",
+  "description": "A drawing of Norbit",
+  "image": "https://minion-generator.herokuapp.com/asarel/Norbit.png"
 }
 </pre>

@@ -28,7 +28,7 @@ function createMinion(id, name) {
   const meta = {
     name,
     description: `A drawing of ${name}`,
-    image_location: `https://minion-generator.herokuapp.com/${id}/${name}.png`,
+    iamge: `https://minion-generator.herokuapp.com/${id}/${name}.png`,
   };
 
   writeFileSync(`./public/${id}/${name}.svg`, final);

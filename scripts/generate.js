@@ -1,7 +1,6 @@
 let names = require("../data/names.json");
 const { readFileSync } = require("fs");
 const sharp = require("sharp");
-const randomstring = require("randomstring");
 
 function randomNumber(max) {
   return Math.floor(Math.random() * (max + 1));
