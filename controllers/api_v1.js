@@ -2,9 +2,10 @@ const express = require("express");
 const apiv1 = express.Router();
 
 const dir = require("../scripts/directory");
-const { randomName } = require("../scripts/generate")
+const { randomName } = require("../scripts/generate");
 const gru = require("../scripts/minion");
-// const bigGru = require("../scripts/minions");
+
+const { rm, existsSync } = require("fs");
 
 // Minion Route
 apiv1.get("/minion/:userid", (req, res) => {
@@ -16,14 +17,19 @@ apiv1.get("/minion/:userid", (req, res) => {
   res.send(minion);
 });
 
-// apiv1.get("/minions/:userid/:num", (req, res) => {    
-//   let id = req.params.userid;
-//   let num = req.params.num;
-//   let names = randomNames(num);
-//   dir.checkPublic();
-//   dir.checkUserFolder(id);
-//   let minions = bigGru.createMinions(id, names, num);
-//   res.send(minions);
-// });
+apiv1.delete("/minion", (req, res) => {
+  if (existsSync("./public")) {
+    rm(`./public`, { recursive: true }, (err) => {
+      if (err) {
+        // File deletion failed
+        console.error(err.message);
+        return;
+      }
+    });
+    res.send("public has been deleted");
+  } else {
+    res.send("public does not exist");
+  }
+});
 
 module.exports = apiv1;
