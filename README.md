@@ -1,4 +1,7 @@
-<h1>Minion Meme Generator API</h1>
+<div align="center">
+  <img src="./minionmemegenerator.png" width="300" height="300" />
+  <h1>Minion Meme Generator</h1>
+</div>
 
 <h4>Getting Started</h4>
 
